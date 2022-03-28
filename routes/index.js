@@ -1,11 +1,11 @@
 import express from "express";
-import { gettAllData, createNewData,updateTable,deleteTable } from "../models/index.js";
+import { getAllData, createNewData,updateTable,deleteTable } from "../models/index.js";
 
 const router = express.Router();
 
 /* GET users listing. */
 router.get("/", async function (req, res) {
-  const data = await gettAllData()
+  const data = await getAllData()
   res.json({
     success : true,
     payload : data

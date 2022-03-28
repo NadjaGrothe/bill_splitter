@@ -2,17 +2,16 @@ import query from "../index.js";
 import { data } from "../../dummyData.js";
 
 async function populateTable() {
-  for (let i = 0; i < data.length; i++) {
-    const fullName = data[i].fullName;
-    const petsName = data[i].petsName;
-    const petType = data[i].petType;
-    const res = await query(
-      `INSERT INTO personnel(fullName,petsName,petType)VALUES($1, $2, $3) RETURNING fullName`,
-      [fullName, petsName, petType]
-    );
+   for (let i = 0; i < data.length; i++) {
+      const rec_exp_name = data[i].rec_exp_name;
+      const rec_exp_amount = data[i].rec_exp_amount;
+      const res = await query(
+         `INSERT INTO recurring(rec_exp_name,rec_exp_amount)VALUES($1, $2) RETURNING *`,
+         [rec_exp_name, rec_exp_amount]
+      );
 
-    console.log(res);
-  }
+      console.log(res);
+   }
 }
 
 populateTable();
