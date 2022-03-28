@@ -1,11 +1,9 @@
 import query from "../index.js";
 
-const sqlString = `CREATE TABLE IF NOT EXISTS personnel (
-    user_id SERIAL PRIMARY KEY,
-    fullName VARCHAR(255),
-    petsName VARCHAR(255), 
-    petType VARCHAR(255),
-    created timestamp not null default CURRENT_TIMESTAMP
+const sqlString = `CREATE TABLE IF NOT EXISTS recurring (
+    rec_exp_id SERIAL PRIMARY KEY,
+    rec_exp_name VARCHAR(255),
+    rec_exp_amount DECIMAL 
 );`
 
 async function createTable() {
